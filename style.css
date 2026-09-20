@@ -431,6 +431,15 @@ body{
     font-size: 18px;
 }
 
+.axeproject-image{
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    object-fit: contain;
+    padding: 20px;
+}
+
+
 .contactme-wrapper{
     display: flex;
     flex-direction: column;
