@@ -5,8 +5,6 @@ function applyMode(isDark) {
     modeToggle.textContent = isDark ? '☀️' : '🌙';
 }
 
-// Use the visitor's saved choice if they have one, otherwise fall back
-// to their OS/browser preference.
 const savedMode = localStorage.getItem('darkMode');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -18,11 +16,7 @@ modeToggle.addEventListener('click', () => {
     localStorage.setItem('darkMode', isDark);
 });
 
-// --- Name heading: letters nearest the cursor get bolder ---
-// Splits "SUNNY ZHANG" into one <span> per letter, then on mousemove
-// gives each letter a text-stroke proportional to how close the
-// cursor is to it (closer = thicker stroke = looks bolder). This
-// works with the existing system font, no external font needed.
+// name heading letter-hover effect
 const nameHeading = document.getElementById('name-heading');
 
 if (nameHeading) {
@@ -58,10 +52,7 @@ if (nameHeading) {
     });
 }
 
-// --- Work timeline: tap-to-toggle cards for touch devices ---
-// The cards already appear on hover for mouse users. Touchscreens
-// don't have a reliable hover state, so tapping a point toggles its
-// card instead, and tapping anywhere else closes it.
+// timeline tap-to-toggle for touch devices
 const timelinePoints = document.querySelectorAll('.timeline-point');
 
 timelinePoints.forEach((point) => {

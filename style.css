@@ -202,7 +202,7 @@ body{
     
 }
 
-/* ---------- Work timeline ---------- */
+/* work timeline */
 
 .work-wrapper{
     display: flex;
@@ -504,7 +504,7 @@ body{
     color: #d35400;
 }
 
-/* ---------- Dark Mode ---------- */
+/* dark mode */
 
 body.dark-mode{
     background: linear-gradient(to bottom, var(--bg-surface) 0%, var(--bg-main) 55%, var(--bg-deep) 100%);
@@ -578,9 +578,6 @@ body.dark-mode .linkedin-btn2{
     color: var(--accent-secondary);
 }
 
-/* Phone icon is a dark glyph on a transparent/light background;
-   inverting it in dark mode keeps it visible instead of turning
-   it into a near-invisible dark blob on the dark surface. */
 body.dark-mode .contactme-img{
     filter: invert(1);
 }
@@ -633,7 +630,7 @@ body.dark-mode .point-card-date{
     color: var(--text-muted);
 }
 
-/* ---------- Responsive layout ---------- */
+/* responsive layout */
 
 @media (max-width: 900px){
     .title-text h1{
