@@ -169,6 +169,10 @@ body{
 
 .headshot-img{
     height: 375px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    align-self: center;
+    flex-shrink: 0;
     clip-path: circle(47%);
 
     margin: 0px;
@@ -729,25 +733,98 @@ body.dark-mode .point-card-date{
         font-size: 36px;
     }
 
+    /* vertical timeline: dots run down the left, cards sit beside them */
+
+    .worktitle-text{
+        margin-bottom: 30px;
+    }
+
     .timeline{
-        overflow-x: auto;
-        padding: 0 20px 55px;
+        flex-direction: column;
+        max-width: 420px;
+        padding: 0;
+    }
+
+    .timeline-segment{
+        flex: 0 0 auto;
+        width: 3px;
+        height: 24px;
+        margin: 0 0 0 6.5px;
+    }
+
+    .timeline-segment.future{
+        width: 0;
+        border-top: none;
+        border-left: 3px dashed #839094;
+    }
+
+    .timeline-point{
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        width: 100%;
+    }
+
+    /* line continues down past the card to the next dot */
+    .timeline-point.filled::before{
+        content: "";
+        position: absolute;
+        top: 16px;
+        bottom: 0;
+        left: 6.5px;
+        width: 3px;
+        background: var(--work-accent);
     }
 
     .point-dot{
+        order: -1;
+        flex-shrink: 0;
         width: 16px;
         height: 16px;
     }
 
     .point-label{
-        width: 70px;
-        font-size: 12px;
-        margin-top: 10px;
+        position: static;
+        transform: none;
+        width: auto;
+        margin: 0;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: left;
     }
 
-    .point-card{
-        width: 160px;
+    .timeline-point.filled .point-label{
+        display: none;
+    }
+
+    .point-card,
+    .timeline-point:hover .point-card,
+    .timeline-point.active .point-card{
+        position: static;
+        flex: 1;
+        width: auto;
+        margin: 0;
         padding: 12px 14px;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .point-card::after{
+        display: none;
+    }
+
+    .timeline-point.future .point-card{
+        display: none;
+    }
+
+    body.dark-mode .timeline-point.filled::before{
+        background: var(--accent-primary);
+    }
+
+    body.dark-mode .timeline-segment.future{
+        border-left-color: var(--border-subtle);
     }
 
     .project-card{
