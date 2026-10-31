@@ -5,10 +5,8 @@ function applyMode(isDark) {
     modeToggle.textContent = isDark ? '☀️' : '🌙';
 }
 
-const savedMode = localStorage.getItem('darkMode');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-applyMode(savedMode !== null ? savedMode === 'true' : prefersDark);
+// start in light mode unless user switched to dark before
+applyMode(localStorage.getItem('darkMode') === 'true');
 
 modeToggle.addEventListener('click', () => {
     const isDark = !document.body.classList.contains('dark-mode');

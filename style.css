@@ -168,7 +168,7 @@ body{
 
 .headshot-img{
     height: 375px;
-    clip-path: circle();
+    clip-path: circle(48%);
 
     margin: 0px;
     
